@@ -19,7 +19,7 @@ def start(message):
     request_code = hashlib.md5(
         str(datetime.now(pytz.timezone('GMT')).replace(second=0, microsecond=0)).split('+')[0].encode('utf-8')
     ).hexdigest()[-5:]
-    req = requests.get(f'http://localhost/getUser.php?request_code={request_code}&user={message.text}').text
+    req = requests.get(f'http://docs-flow.ru/getUser.php?request_code={request_code}&user={message.text}').text
     try:
         x = json.loads(req)
         if x:
