@@ -32,6 +32,7 @@ def start(message):
             ).hexdigest()[-5:]
             bot.send_message(message.from_user.id, f"Welcome, {x['fullname']}!\nYour code: {code}")
             authes[message.from_user.id] = x['fullname']
+            bot.delete_message(message.chat.id, message.message_id)
     except:
         pass
 
